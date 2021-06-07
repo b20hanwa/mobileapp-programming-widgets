@@ -1,42 +1,36 @@
 
-# Rapport
+# Rapport Widgets
 
-**Skriv din rapport här!**
+I denna rapport beskrivs uppgiften Widgets i Programmering av mobila applikationer. Denna uppgift gick ut på att använda en layout och minst tre vyer i sin applikation. För vyer valdes Button, EditText och ImageView, och dessa ligger inuti en ConstraintLayout.
 
-_Du kan ta bort all text som finns sedan tidigare_.
+Nedan visas kod för vyen Button;
 
-## Följande grundsyn gäller dugga-svar:
+    <Button
+        android:id="@+id/MyBtn"
+        android:text="En knapp!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-- Ett kortfattat svar är att föredra. Svar som är längre än en sida text (skärmdumpar och programkod exkluderat) är onödigt långt.
-- Svaret skall ha minst en snutt programkod.
-- Svaret skall inkludera en kort övergripande förklarande text som redogör för vad respektive snutt programkod gör eller som svarar på annan teorifråga.
-- Svaret skall ha minst en skärmdump. Skärmdumpar skall illustrera exekvering av relevant programkod. Eventuell text i skärmdumpar måste vara läsbar.
-- I de fall detta efterfrågas, dela upp delar av ditt svar i för- och nackdelar. Dina för- respektive nackdelar skall vara i form av punktlistor med kortare stycken (3-4 meningar).
+Här har till exempel knappen fått ett id via andrid:id och en text via andrid:text. App:layout ger knappen dess position, medan andriod:layout ger knappen sitt utseende där knappens innehåll omsluts.
 
-Programkod ska se ut som exemplet nedan. Koden måste vara korrekt indenterad då den blir lättare att läsa vilket gör det lättare att hitta syntaktiska fel.
+Sedan används knappen också i MainActivity och ges här en ClickListener med denna kod:
 
-```
-function errorCallback(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            // Geolocation API stöds inte, gör något
-            break;
-        case error.POSITION_UNAVAILABLE:
-            // Misslyckat positionsanrop, gör något
-            break;
-        case error.UNKNOWN_ERROR:
-            // Okänt fel, gör något
-            break;
-    }
-}
-```
+    Button b = findViewById(R.id.MyBtn);
 
-Bilder läggs i samma mapp som markdown-filen.
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("==>", "We clicked on En knapp!");
+            }
+        });
 
-![](android.png)
 
-Läs gärna:
+Med hjälp av ovan kod får vi ett meddelande i Logcat när vi klickar på knappen, vilket gör att vi kan kontrollera att knappen faktiskt går att klicka på.
 
-- Boulos, M.N.K., Warren, J., Gong, J. & Yue, P. (2010) Web GIS in practice VIII: HTML5 and the canvas element for interactive online mapping. International journal of health geographics 9, 14. Shin, Y. &
-- Wunsche, B.C. (2013) A smartphone-based golf simulation exercise game for supporting arthritis patients. 2013 28th International Conference of Image and Vision Computing New Zealand (IVCNZ), IEEE, pp. 459–464.
-- Wohlin, C., Runeson, P., Höst, M., Ohlsson, M.C., Regnell, B., Wesslén, A. (2012) Experimentation in Software Engineering, Berlin, Heidelberg: Springer Berlin Heidelberg.
+Nedan synd det färdiga resultaten av denna uppgift:
+
+![](Screenshot_1623065365.png)
